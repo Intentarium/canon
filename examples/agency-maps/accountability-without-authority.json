@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/agency-map.schema.json",
+  "schema_version": "0.1.0",
+  "id": "agency-map.accountability-without-authority",
+  "title": "Aligning delivery accountability with decision authority",
+  "intent": {
+    "outcome": "Allow an accountable delivery team to make routine, reversible decisions without waiting for ad hoc permission.",
+    "success_signals": ["Routine decisions complete within the agreed service window", "Exceptions follow a visible escalation route"],
+    "non_goals": ["Granting unrestricted production authority", "Removing independent review for irreversible changes"]
+  },
+  "actors": [
+    { "id": "delivery-team", "kind": "team", "role": "Owns the delivery outcome" },
+    { "id": "control-owner", "kind": "person", "role": "Defines boundaries and approves high-impact exceptions" },
+    { "id": "automation", "kind": "service", "role": "Enforces checks and records execution evidence" }
+  ],
+  "authority": [
+    {
+      "actor": "delivery-team",
+      "actions": ["propose", "test", "execute-reversible-change", "rollback"],
+      "scope": "Changes classified as routine and reversible",
+      "conditions": ["Required checks pass", "Rollback path exists", "Change remains inside the approved boundary"]
+    },
+    {
+      "actor": "control-owner",
+      "actions": ["approve-exception", "stop", "change-boundary"],
+      "scope": "High-impact and constitutional changes",
+      "conditions": ["Decision and rationale are recorded"]
+    }
+  ],
+  "boundaries": [
+    { "rule": "The delivery team cannot change its own approval boundary.", "enforcement": "Protected policy files and independent production promotion" },
+    { "rule": "Execution stops when required evidence is missing.", "enforcement": "Fail-closed automated gate" }
+  ],
+  "trust_signals": [
+    { "signal": "Required checks passed", "source": "Continuous integration", "freshness": "For the exact proposed commit" },
+    { "signal": "Actor is authorized for the requested scope", "source": "Repository and environment policy", "freshness": "At execution time" }
+  ],
+  "evidence": [
+    { "signal": "Reviewed proposal, checks, approval, deployment, and rollback reference", "source": "Version-control and deployment records", "freshness": "Retained with the release" }
+  ],
+  "escalation": [
+    { "trigger": "The change exceeds routine scope or a required check fails.", "route": "Control owner review", "stop_condition": "No execution until an explicit decision is recorded" }
+  ],
+  "feedback": [
+    { "signal": "Decision delay, failed changes, emergency intervention, and rollback frequency", "owner": "Delivery and control owners", "cadence": "At each retrospective", "response": "Adjust decision rights or controls through a reviewed change" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@intentarium/canon",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-canon.mjs",
+    "manifest": "node scripts/build-manifest.mjs --output dist/manifest.json"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
