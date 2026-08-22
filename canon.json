@@ -1,0 +1,12 @@
+{
+  "$schema": "./schemas/canon-object.schema.json",
+  "id": "intentarium.canon",
+  "name": "Intentarium Canon",
+  "version": "0.1.0",
+  "status": "proposed",
+  "canonical_url": "https://intentarium.com",
+  "repository": "https://github.com/Intentarium/canon",
+  "license": "CC-BY-4.0",
+  "thesis": "Autonomy without chaos.",
+  "promise": "Where intent becomes architecture."
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://intentarium.com/schemas/canon-object.schema.json",
+  "title": "Intentarium Canon Descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "version", "status", "canonical_url", "repository", "license", "thesis", "promise"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "const": "intentarium.canon" },
+    "name": { "const": "Intentarium Canon" },
+    "version": { "type": "string", "pattern": "^0\\.[0-9]+\\.[0-9]+$" },
+    "status": { "enum": ["proposed", "released", "deprecated"] },
+    "canonical_url": { "const": "https://intentarium.com" },
+    "repository": { "const": "https://github.com/Intentarium/canon" },
+    "license": { "const": "CC-BY-4.0" },
+    "thesis": { "type": "string", "minLength": 1 },
+    "promise": { "type": "string", "minLength": 1 }
+  }
+}
