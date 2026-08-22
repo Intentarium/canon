@@ -1,0 +1,88 @@
+name: Public-safe field report
+description: Propose a sanitized observation or deliberate application of an Intentarium pattern.
+title: "Field report: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Stop before submitting
+
+        This issue becomes public immediately. Git history, notifications, forks, caches, and third-party indexes can make disclosure irreversible even if the issue is later edited or deleted.
+
+        **Do not paste or attach a raw Agency Map.** Do not include names, email addresses, credentials, private communications, employer or customer information, private repository details, unpublished incident timelines, or reconstructable operational context. If you are unsure whether the report is safely public, do not submit it.
+  - type: input
+    id: patterns
+    attributes:
+      label: Pattern identifiers
+      description: List one or more public Canon IDs, such as pattern.versioned-decisions.
+      placeholder: pattern.versioned-decisions
+    validations:
+      required: true
+  - type: dropdown
+    id: study_type
+    attributes:
+      label: Report type
+      options:
+        - Observation
+        - Deliberate application
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Overall outcome
+      description: Neutral and contradictory results are useful evidence.
+      options:
+        - Supports
+        - Mixed
+        - Neutral
+        - Contradicts
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Generalized context
+      description: Describe the domain, setting, and constraints without identifying a person or organization.
+      placeholder: A generalized team or system needed to...
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: What was observed or deliberately applied?
+      description: Name the pattern elements and method. Do not include private implementation details.
+    validations:
+      required: true
+  - type: textarea
+    id: signals
+    attributes:
+      label: Observable signals
+      description: For each signal, state the generalized baseline, observation, direction, and source. Include unchanged, negative, or inconclusive signals.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations and confounders
+      description: Explain what this report cannot establish and what else may have affected the outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: public_sources
+    attributes:
+      label: Deliberately public sources
+      description: Optional HTTPS links only. Do not link private or access-controlled material.
+  - type: checkboxes
+    id: attestations
+    attributes:
+      label: Publication attestations
+      options:
+        - label: I understand this issue is public immediately and may be difficult to remove from history, caches, and indexes.
+          required: true
+        - label: I did not paste or attach a raw Agency Map, private context, credentials, personal data, employer/customer information, or restricted implementation details.
+          required: true
+        - label: I have authority to publish this sanitized material under CC BY 4.0.
+          required: true
+        - label: I understand submission does not guarantee acceptance or change any pattern's maturity.
+          required: true

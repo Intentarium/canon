@@ -5,7 +5,7 @@ import { dirname, relative, resolve } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const outputIndex = process.argv.indexOf("--output");
 const output = resolve(root, outputIndex >= 0 ? process.argv[outputIndex + 1] : "dist/manifest.json");
-const includedRoots = ["CHARTER.md", "canon.json", "governance", "patterns", "schemas", "specs", "examples"];
+const includedRoots = ["CHARTER.md", "ROADMAP.md", "canon.json", "governance", "patterns", "field-reports", "schemas", "specs", "examples"];
 
 async function walk(path) {
   const entries = await readdir(path, { withFileTypes: true });

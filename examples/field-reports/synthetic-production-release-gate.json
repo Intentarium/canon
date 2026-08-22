@@ -1,0 +1,63 @@
+{
+  "$schema": "../../schemas/field-report.schema.json",
+  "schema_version": "0.1.0",
+  "id": "field-report.synthetic-production-release-gate",
+  "type": "field-report",
+  "version": "0.1.0",
+  "status": "draft",
+  "title": "Synthetic production release gate field report",
+  "summary": "A deliberately fictional report showing how mixed evidence can be recorded without representing a real organization, customer, or deployment.",
+  "pattern_ids": [
+    "pattern.intent-survives-execution",
+    "pattern.versioned-decisions"
+  ],
+  "study_type": "deliberate-application",
+  "outcome": "mixed",
+  "context": {
+    "domain": "enterprise technology modernization",
+    "setting": "A fictional software-delivery team replaces an informal production release sequence with a reviewed, versioned plan and an explicit authorization gate.",
+    "constraints": [
+      "The scenario is synthetic and is not derived from an employer or customer system.",
+      "The release must remain reversible and preserve a human stop decision."
+    ]
+  },
+  "method": {
+    "description": "The fictional team records the intended change, saves the exact infrastructure plan, verifies provenance at apply time, and requires a named human authorization before production execution.",
+    "pattern_elements": [
+      "Preserve intent in the reviewed commit and saved plan.",
+      "Treat the release decision and its evidence as versioned artifacts."
+    ]
+  },
+  "signals": [
+    {
+      "name": "Stale-plan execution",
+      "baseline": "The fictional baseline allowed a plan to be recreated during release.",
+      "observed": "The designed gate rejects a plan when its commit, artifact digest, or state serial no longer matches.",
+      "direction": "positive",
+      "source": "Synthetic walkthrough against the documented release controls"
+    },
+    {
+      "name": "Routine release effort",
+      "baseline": "The fictional baseline used one manual approval step.",
+      "observed": "The designed gate adds provenance checks whose operational burden has not been measured in a real release.",
+      "direction": "inconclusive",
+      "source": "Synthetic design review; no production timing data"
+    }
+  ],
+  "limitations": [
+    "No real user, organization, repository, or production environment was observed.",
+    "The example demonstrates the contract and cannot support pattern maturity.",
+    "No longitudinal outcome or independent replication exists."
+  ],
+  "independence": {
+    "classification": "synthetic",
+    "statement": "This report was authored solely as a fictional schema example and is not independent evidence."
+  },
+  "public_sources": [],
+  "synthetic": true,
+  "disclosure": "green",
+  "approved_by": ["chrisleeddotcom"],
+  "license": "CC-BY-4.0",
+  "created": "2026-08-22",
+  "updated": "2026-08-22"
+}

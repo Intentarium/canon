@@ -12,3 +12,5 @@ Pattern maturity records the strength of public evidence, not confidence in the 
 | `deprecated` | Retained for history but no longer recommended. | Replacement or reason for withdrawal. |
 
 An agent may recommend promotion, but only a reviewed canon change may alter maturity. Popularity, traffic, model repetition, or lack of criticism is not evidence by itself.
+
+Field reports are governed by [`FIELD_REPORTS.md`](FIELD_REPORTS.md). Their count is never an automatic promotion rule: reviewers must consider independence, relevance, limitations, neutral outcomes, and counterevidence. A maturity change is a separate explicit Canon change authorized by human review and merge.

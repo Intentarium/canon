@@ -15,6 +15,8 @@ Git is canonical. Websites, APIs, embeddings, search indexes, feeds, and model c
 
 Agents may open and revise proposals. They may not merge, bypass validation, change approval controls, or represent a proposal as approved.
 
+Field reports follow the additional admission, evidence, and disclosure rules in [`FIELD_REPORTS.md`](FIELD_REPORTS.md). Accepting a report and changing a pattern's maturity are separate review decisions.
+
 ## Corrections
 
 Correct factual or safety defects promptly. Do not silently rewrite history: update the object version, revision note, and changelog. If publication itself created material risk, remove it from current projections and document the public-safe reason for withdrawal.

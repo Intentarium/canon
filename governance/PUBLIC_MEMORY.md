@@ -26,6 +26,8 @@ Red material must not enter this repository, its issues, pull requests, build ar
 
 Every public object must declare `disclosure: green`. A human reviewer authorizes publication by approving and merging the pull request. Automation may flag risk and propose safer wording, but it cannot waive this policy.
 
+Field reports must use generalized, public-safe context and must never include a raw Agency Map. Their additional admission rules are defined in [`FIELD_REPORTS.md`](FIELD_REPORTS.md).
+
 ## Irreversibility
 
 Git history, forks, caches, feeds, and third-party indexes make public publication difficult to reverse. When classification is uncertain, do not publish. Record the uncertainty outside the public repository and request human review.

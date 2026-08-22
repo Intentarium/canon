@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Define the human-reviewed Field Report v0.1 governance and machine contract.
+- Add an explicitly synthetic Green example that cannot count as field evidence.
+- Validate Canon objects against their JSON Schemas and enforce field-report references, accepted-report boundaries, and conservative public-safety checks.
+- Publish the near-term Evidence Loop, Guide 01, founding-pilot, and bounded-Clinic sequence.
+
 ## 0.1.0 — Proposed
 
 - Establish the public-memory and editorial governance contracts.
