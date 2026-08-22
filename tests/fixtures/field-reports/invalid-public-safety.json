@@ -1,0 +1,6 @@
+{
+  "expected": "semantics",
+  "patch": {
+    "summary": "This deliberately unsafe fixture contains the address private.person@example.com and must be rejected before publication."
+  }
+}

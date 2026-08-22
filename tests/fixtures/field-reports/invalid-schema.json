@@ -1,0 +1,6 @@
+{
+  "expected": "schema",
+  "patch": {
+    "disclosure": "amber"
+  }
+}

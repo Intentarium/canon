@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://intentarium.com/schemas/field-report.schema.json",
+  "title": "Intentarium Field Report",
+  "description": "A reviewed, public-safe report about observing or deliberately applying one or more Intentarium patterns.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "type",
+    "version",
+    "status",
+    "title",
+    "summary",
+    "pattern_ids",
+    "study_type",
+    "outcome",
+    "context",
+    "method",
+    "signals",
+    "limitations",
+    "independence",
+    "public_sources",
+    "synthetic",
+    "disclosure",
+    "approved_by",
+    "license",
+    "created",
+    "updated"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schema_version": { "const": "0.1.0" },
+    "id": { "type": "string", "pattern": "^field-report\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$" },
+    "type": { "const": "field-report" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "status": { "enum": ["draft", "published", "withdrawn"] },
+    "title": { "type": "string", "minLength": 8, "maxLength": 160 },
+    "summary": { "type": "string", "minLength": 24, "maxLength": 500 },
+    "pattern_ids": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^pattern\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$" }
+    },
+    "study_type": { "enum": ["observation", "deliberate-application"] },
+    "outcome": { "enum": ["supports", "mixed", "neutral", "contradicts"] },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "setting", "constraints"],
+      "properties": {
+        "domain": { "type": "string", "minLength": 3, "maxLength": 80 },
+        "setting": { "type": "string", "minLength": 40, "maxLength": 2000 },
+        "constraints": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "pattern_elements"],
+      "properties": {
+        "description": { "type": "string", "minLength": 40, "maxLength": 2000 },
+        "pattern_elements": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "signals": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "baseline", "observed", "direction", "source"],
+        "properties": {
+          "name": { "type": "string", "minLength": 3, "maxLength": 160 },
+          "baseline": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "observed": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "direction": { "enum": ["positive", "negative", "unchanged", "inconclusive"] },
+          "source": { "type": "string", "minLength": 3, "maxLength": 500 }
+        }
+      }
+    },
+    "limitations": { "$ref": "#/$defs/nonEmptyStrings" },
+    "independence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "statement"],
+      "properties": {
+        "classification": { "enum": ["author-involved", "independent", "synthetic"] },
+        "statement": { "type": "string", "minLength": 24, "maxLength": 1000 }
+      }
+    },
+    "public_sources": {
+      "type": "array",
+      "maxItems": 20,
+      "uniqueItems": true,
+      "items": { "type": "string", "format": "uri" }
+    },
+    "synthetic": { "type": "boolean" },
+    "disclosure": { "const": "green" },
+    "approved_by": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 120 }
+    },
+    "license": { "const": "CC-BY-4.0" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" }
+  },
+  "$defs": {
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 1000 }
+    }
+  }
+}

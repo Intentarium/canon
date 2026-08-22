@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate-canon.mjs",
+    "test": "node scripts/test-field-reports.mjs",
     "manifest": "node scripts/build-manifest.mjs --output dist/manifest.json"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0"
   },
   "engines": {
     "node": ">=22"

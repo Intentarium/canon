@@ -1,0 +1,6 @@
+{
+  "expected": "semantics",
+  "patch": {
+    "pattern_ids": ["pattern.does-not-exist"]
+  }
+}

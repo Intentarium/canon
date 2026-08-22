@@ -7,6 +7,7 @@
   "additionalProperties": false,
   "required": ["schema_version", "id", "title", "intent", "actors", "authority", "boundaries", "trust_signals", "evidence", "escalation", "feedback"],
   "properties": {
+    "$schema": { "type": "string" },
     "schema_version": { "const": "0.1.0" },
     "id": { "type": "string", "pattern": "^agency-map\\.[a-z0-9]+(?:[.-][a-z0-9]+)*$" },
     "title": { "type": "string", "minLength": 1 },
